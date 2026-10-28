@@ -1,0 +1,8 @@
+<div class="content">
+    <img [src]="this.roomCardData?.image" alt="">
+    <div class="info">
+        <p class="titre">{{this.roomCardData?.salle}}</p>
+        <p class="descri">{{this.roomCardData?.description}}</p>
+        <button (click)="this.roomCardData?.onClick()">Ajouter au parcours</button>
+    </div>
+</div>

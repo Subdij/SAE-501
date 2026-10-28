@@ -1,0 +1,132 @@
+@import '../../../styles.scss';
+
+#footer{
+    background-color: $footer;
+    padding: 0 30px;
+    position: relative;
+    @include flex(column, center, center);
+    
+    @media screen and (width > 700px) {
+        #container-content{
+            @include flex(row, flex-start, space-around);
+            flex-wrap: wrap;
+            width: 90%;
+        }
+        #container-copyright{
+            width: 90% !important;
+        }
+        #iut{
+            flex-basis: 50%;
+        }
+        #liens{
+            flex-basis: 30%;
+            h4, a{
+                text-align: center;
+                width: 100%;
+            }
+        }
+        #container-right{
+            margin-top: 30px;
+            width: 90%;
+            @include flex(row, flex-start, space-between);
+            h4{
+                margin-top: 0 !important;
+            }
+            #follow{
+                flex-basis: 45%;
+            }
+        }
+    }
+    @media screen and (width > 1120px) {
+        flex-wrap: nowrap;
+        padding: 40px 0 0;
+        #iut{
+            flex-basis: 33.3%;
+        }
+        #liens{
+            flex-basis: 33.3%;
+        }
+        h3, h4{
+            margin-top: 0 !important;
+        }
+        #container-right{
+            flex-direction: column !important;
+            align-items: center !important;
+            flex-basis: 33.3%;
+            margin-top: 0;
+            #follow{
+                width: 280px;
+            }
+            #eiffel{
+                margin-top: 30px;
+                width: 280px;
+            }
+        }
+    }
+    @media screen and (width > 1500px){
+        #iut{
+            max-width: 500px;
+        }
+    }
+    h3{
+        font-family: "bold";
+        font-size: 25px;
+        text-transform: uppercase;
+        color: $clear-text;
+        margin: 25px 0;
+    }
+    p, a{
+        color: $popup-text-color;
+        font-family: "text";
+    }
+    h4{
+        font-family: "bold";
+        font-size: 20px;
+        color: $clear-text;
+    }
+    #liens{
+        @include flex(column, flex-start, flex-start);
+        h4{
+            margin-top: 10px;
+            @media screen and (width > 700px) {
+                margin-top: 28px;
+            }
+        }
+        a{
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+    }
+    #container-right{
+        @media screen and (width > 700px){
+        }
+        #follow{
+            h4{
+                margin: 15px 0 10px;
+            }
+            #social img{
+                margin-right: 10px;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    transform: scale(1.1);
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+        #eiffel h4{
+            text-transform: uppercase;
+            margin-top: 50px;
+        }
+    }
+    #container-copyright{
+        width: 100%;
+        hr{
+            border-color: $popup-text-color;
+            margin-bottom: 25px;
+        }
+        p{
+            margin: 0;
+            padding-bottom: 30px;
+        }
+    }
+}

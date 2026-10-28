@@ -1,0 +1,22 @@
+<div id="cover">
+    <h2>{{h2Text}}</h2>
+    <h1 id="small-time" *ngIf="!isDatePassed">J-{{ timeLeft }}</h1>
+    <h1 id="small-time" *ngIf="isDatePassed">{{ timeLeft }}J</h1>
+
+    <div id="grid-container">
+        <div id="days"><h1>{{ daysLeft }}</h1></div>
+        <div class="dot" id="dot2">:</div>
+        <div id="hours"><h1>{{ hoursLeft }}</h1></div>
+        <div class="dot" id="dot3">:</div>
+        <div id="minutes"><h1>{{ minutesLeft }}</h1></div>
+        <div class="dot" id="dot1">:</div>
+        <div id="months"><h1>{{ secondsLeft }}</h1></div>
+        <span id="days-text">Jours</span>
+        <span id="hours-text">Heures</span>
+        <span id="minutes-text">Minutes</span>
+        <span id="seconds-text">Secondes</span>
+
+    </div>
+    <p *ngIf="!isDatePassed">Nous sommes impatients de vous accueillir le <b>03 février 2024</b></p>
+    <p *ngIf="isDatePassed">Nous sommes impatients de vous accueillir à notre prochaine JPO !</p>
+</div>

@@ -1,0 +1,8 @@
+<div class="projets-container">
+    <ng-container *ngFor="let project of projects; let i = index">
+        <app-projets-card-formation *ngIf="showAllProjects || i<3" [title]="project.title" [image]="project.image" [description]="project.description" [author]="project.author" [date]="project.date" [link]="project.link"></app-projets-card-formation>
+    </ng-container>
+</div>
+<button (click)="toggleProjects()">
+    {{showAllProjects ? 'Voir moins de projets' : 'Voir plus de projets'}}
+</button>

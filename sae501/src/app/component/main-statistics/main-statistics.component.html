@@ -1,0 +1,12 @@
+<div id="container-main-stats">
+    <h2>Statistiques remarquables</h2>
+    <div id="container">
+        <div class="card-main-stats" *ngFor="let mainStat of mainStats" [ngClass]="{'border': mainStat.isAverageScore}">
+            <img src="{{mainStat.img}}">
+            <div>
+                <p>{{mainStat.stat}}</p>
+                <span>{{mainStat.desc}}</span>    
+            </div>
+        </div>
+    </div>
+</div>

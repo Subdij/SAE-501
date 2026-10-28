@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+
+#form-container{
+    @media screen and (width > 1000px){
+        #container-login{
+            display: block;
+            text-align: center;
+        }
+        #login{
+            display: none;
+        }
+    }
+    @include flex(row, center, space-evenly);
+    @include form(1000px, 0 0 18px 0);
+    #form{
+        @include flex(column, center, center);
+        width: 100%;
+        max-width: 520px;
+        form{
+            @include flex(column, center, center);
+            width: 70%;
+            #container-name, #container-infos{
+                @include flex(row, center, space-between);
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            @media screen and (width > 550px) {
+                #container-name, #container-infos{
+                    flex-wrap: nowrap;
+                }
+                .margin-right{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    #login{
+        text-align: center;
+    }
+    @media screen and (width < 1001px) {
+        #container-login{
+            display: none;
+        }
+    }
+    app-form-error{
+        width: 100%;
+    }
+}

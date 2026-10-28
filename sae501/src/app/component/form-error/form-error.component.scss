@@ -1,0 +1,26 @@
+@import '../../../styles.scss';
+.error{
+    @include flex(column, center, space-evenly);
+    gap: 10px;
+    width: calc(100% - 23px);
+    background-color: $clear-background;
+    padding: 12px;
+    color: $delete;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 8px;
+
+    p{
+        @include flex(row, center, flex-start);
+        gap: 10px;
+        margin: 0;
+        text-align: start;
+        width: 100%;
+
+        img{
+            width: 18px;
+            height: 18px;
+            // margin-left: 40px;
+        }    
+    }
+}

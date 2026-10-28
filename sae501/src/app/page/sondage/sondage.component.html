@@ -1,0 +1,22 @@
+<div id="container-sondage">
+    <div id="container-desc">
+        <div>
+            <h2>Vous avez aimé la JPO ? Faites le nous savoir !</h2>
+            <div class="line"></div>    
+        </div>
+        <p>Nous vous remercions de votre visite à la Journée Portes Ouvertes 
+            de l’IUT de Meaux. Dans le cadre de l’amélioration continue de nos 
+            services, votre avis et vos réponses sont très important pour nous. 
+            Vous pouvez remplir ci-dessous un sondage rapide permettant de 
+            collecter des données sur vous ainsi que sur votre ressenti durant 
+            la journée.</p>
+    </div>
+    <app-survey-completed *ngIf="dataSaved"></app-survey-completed>
+    <form [formGroup]="this.formSurvey" (ngSubmit)="onSubmit()" *ngIf="!this.dataSaved">
+        <div id="container-card">
+            <app-card-sondage [formGroup]="this.formSurvey" (satisfaction)="this.getSatisfaction($event)"></app-card-sondage>
+        </div>
+        <input type="submit" id="sendData" value="Envoyer les réponses">  
+        <app-form-error *ngIf="isAtLeastOneError(this.errors) && isSubmit" [errorMessages]="this.errors" [styleError]="this.styleError" stylePara="center"></app-form-error>  
+    </form>
+</div>

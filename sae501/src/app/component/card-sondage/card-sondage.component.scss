@@ -1,0 +1,135 @@
+@import '../../../styles.scss';
+
+.card-sondage{
+    background-color: $clear-text;
+    box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    padding: 20px 40px;
+    padding-bottom: 30px;
+    margin-bottom: 40px;    
+    .all-infos{
+        width: 85%;
+        .numberCircle{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $main-color;
+            @include flex(row, center, center);
+            margin: auto;
+            i{
+                font-family: 'bold';
+                font-style: normal;
+                color: $clear-text;
+                font-size: 18px;
+                text-align: center;
+            }
+        }    
+    }
+    #container-desc-input{
+        @include flex(column, flex-start, flex-start);
+    }
+    label{
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        font-size: 15px;
+    }
+    p{
+        font-size: 16px;
+        text-align: center;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+    span{
+        font-size: 14px;
+        color: $popup-text-color;
+        padding-left: 8px;
+    }
+    input[type="text"], input[type="number"]{
+        width: 100%;
+        height: 45px;
+        border-radius: 8px;
+        border: 1px solid $popup-text-color;
+        @include inputFont();
+    }
+    input[type="number"]{
+        max-width: 230px;
+    }
+    input[type="radio"]{
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        accent-color: $main-color;
+        margin-right: 10px;
+    }
+    #inputAge{
+        @include flex(row, center, flex-start);
+        width: 100%;
+        max-width: 230px;
+        border: 1px solid $popup-text-color;
+        border-radius: 8px;
+        input{
+            border: 0;
+        }
+        span{
+            width: 50px;
+        }
+    }
+    .input-radio div, .input-checkbox div{
+        @include flex(row, center, flex-start);
+        margin-top: 15px;
+    }
+    input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+        accent-color: $main-color;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    textarea{
+        resize: none;
+        width: 100%;
+        min-height: 100px;
+        border-radius: 8px;
+        border: 1px solid $popup-text-color;
+        margin-top: 15px;
+        @include inputFont();
+    }
+    .eval{
+        @include flex(row, center, space-between);
+        flex-wrap: wrap;
+        max-width: 320px;
+        margin-top: 15px;
+        .nbEval{
+            cursor: pointer;
+            @include flex(row, center, center);
+            color: $clear-text;
+            font-size: 22px;
+            font-family: "text";
+            border-radius: 5px;
+            height: 50px;
+            width: 50px;
+            background-color: $transparent-main-color;
+            transition: 0.2s;
+            &.active{
+                background-color: $main-color;
+            }
+            &:hover{
+                background-color: $main-color;          
+            }
+        }
+    }
+    @media screen and (width > 550px){
+        #container-question{
+            @include flex(row, center, flex-start);
+            margin-bottom: 15px;
+            .numberCircle{
+                min-width: 40px;
+                height: 40px;
+                margin: 0 10px 0 0;
+            }
+            p{
+                text-align: left;
+            }
+        }
+    }    
+}

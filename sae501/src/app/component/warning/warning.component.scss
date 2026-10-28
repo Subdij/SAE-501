@@ -1,0 +1,44 @@
+@import "../../../styles.scss";
+.content{
+    @include flex(column, center, flex-start);
+    border: 2px solid $warning;
+    border-radius: 10px;
+    background-color: $warning-background;
+    gap: 20px;
+    padding: 20px;
+
+    img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .text{
+        font-size: 13px;
+        font-family: "medium";
+        color: $dark-color;
+        margin: 0;
+        &.phone{
+            width: 85%;
+            text-align: justify;
+        }
+        &.ordi{
+            display: none;
+        }
+    }
+}
+
+@media screen and (width > 600px) {
+    .content{
+        @include flex(row, center, flex-start);
+
+        .text{
+            font-size: 13px;
+            &.phone{
+                display: none;
+            }
+            &.ordi{
+                display: block;
+            }
+        }
+    }
+}

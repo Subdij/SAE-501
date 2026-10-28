@@ -1,0 +1,61 @@
+@import '../../../styles.scss';
+
+#container-main-stats{
+    @include flex(column, flex-start, flex-start);
+    flex-wrap: wrap;
+    #container{
+        @include flex(row, center, flex-start);
+        flex-wrap: wrap;
+    }
+    h2{
+        display: none;
+    }
+    @media screen and (width < 851px){
+        justify-content: center;
+        h2{
+            display: block;
+            font-family: "bold";
+            font-size: 22px;
+            margin-top: 0;
+            margin-left: 20px;
+        }
+        #container{
+            justify-content: space-evenly;
+        }
+        .card-main-stats{
+            margin: 0 5px 20px 5px;
+        }
+    }
+}
+.card-main-stats{
+    box-sizing: border-box;
+    flex: 1;
+    @include flex(row, center, flex-start);
+    background: $clear-text;
+    border-radius: 20px;
+    height: 110px;
+    min-width: 300px;
+    max-width: 340px;
+    padding-right: 8px;
+    margin: 0 20px 15px 0;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+    img{
+        margin: 0 15px 0 20px;
+        width: 75px;
+        height: 75px;
+    }
+    p{
+        font-family: "bold";
+        font-size: 22px;
+        margin: 0;
+    }
+    span{
+        font-family: "text";
+        font-size: 14px;
+        color: $menu-admin-text-color;
+        white-space: wrap;
+    }
+}
+.border{
+    border: 2px solid #FFD600;
+}

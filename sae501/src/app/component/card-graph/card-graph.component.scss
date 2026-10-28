@@ -1,0 +1,34 @@
+@import '../../../styles.scss';
+
+.card-graph{
+    background-color: $clear-text;
+    border-radius: 20px;
+    max-width: 420px;
+    min-width: 370px;
+    height: 250px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+    .info-question{
+        @include flex(row, center, space-between);
+        padding-top: 15px;
+        margin-left: 20px;
+        width: 80%;
+        font-family: "medium";
+        h3{
+            margin: 0;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        .nb-response{
+            font-size: 14px;
+            background-color: $main-color;
+            color: $clear-text;
+            border-radius: 64px;
+            text-align: center;
+            padding: 5px 21px;
+        }
+    }
+    .chart{
+        width: 100%;
+        height: 200px;
+    }
+}

@@ -1,0 +1,9 @@
+<p id="intro">Après un BUT MMI, il est possible de poursuivre des études dans divers domaines, selon vos intérêts et objectifs professionnels.</p>
+
+<div id="container-card-ecoles">
+    <ng-container *ngFor="let data of datas">
+        <app-ecole-card-formation [title]="data.title" [image]="data.image" [links]="data.links"></app-ecole-card-formation>
+    </ng-container>
+</div>
+
+<p id="blabla">Ces formations permettent <strong>d'approfondir les connaissances</strong> et les compétences dans des domaines spécifiques du multimédia et de l'Internet, et ainsi de se spécialiser dans un domaine en particulier. Elles peuvent également offrir des <strong>perspectives</strong> de carrière plus <strong>élevées</strong> et des <strong>salaires plus importants.</strong></p>

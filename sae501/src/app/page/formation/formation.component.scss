@@ -1,0 +1,49 @@
+@import '../../../styles.scss';
+$padding: 10%;
+
+#content{
+    width: 100vw;
+    background-color: $clear-background;
+    padding: 1em $padding 1em $padding;
+    font-family: "text";
+
+    
+    .title{
+        display: inline-block;
+        max-width: calc(100% - #{$padding * 2});
+        h1{
+            font-family: "text";
+            font-size: 1.8em;
+            color: $dark-color;
+            margin-top: 50px;
+            &::after{
+                content: "";
+                display: block;
+                width: 100px;
+                height: 4px;
+                background-color: $main-color;
+                margin-top: 10px;
+            }
+            
+        }
+        @media screen and (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1{
+                font-size: 1.5em;
+                text-align: center;
+                &::after{
+                    margin-left: 10%;
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    >*{
+        width: calc(100% - #{$padding * 2});
+        display: block;
+    }
+}

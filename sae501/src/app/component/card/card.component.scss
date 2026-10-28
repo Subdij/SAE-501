@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+
+.card{
+    width: 70vw;
+    max-width: 430px;
+    min-height: 250px;
+    border-radius: 20px;
+    background: rgb(29,67,127);
+    background: -moz-linear-gradient(90deg, rgba(29,67,127,1) 0%, rgba(99,42,156,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(29,67,127,1) 0%, rgba(99,42,156,1) 100%);
+    background: linear-gradient(90deg, rgba(29,67,127,1) 0%, rgba(99,42,156,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d437f",endColorstr="#632a9c",GradientType=1);    color: $clear-text;
+    text-align: center;
+    font-family: "text";
+    font-size: 16px;
+    @include flex(column, center, space-evenly);
+    padding: 20px;
+    margin: 20px 0;
+    img{
+        padding: 10px;
+    }
+}
+@media screen and (width > 999px) {
+    .card{
+        width: 45vw;
+    }
+}

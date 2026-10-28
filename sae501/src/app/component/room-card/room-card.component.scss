@@ -1,0 +1,48 @@
+@import "../../../styles.scss";
+.content{
+    background-color: $clear-text;
+    border-radius: 15px;
+    box-shadow: rgba(0,0,0,0.25) 0px 3px 3.5px;
+
+    img{
+        border-radius: 15px 15px 0px 0px;
+        width: 100%;
+    }
+
+    .info{
+        padding: 10px;
+        .titre{
+            font-family: "semi-bold";
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            margin-top: 0px;
+        }
+        .descri{
+            font-family: "medium";
+            font-size: 13px;
+            width: 90%;
+            text-align: justify;
+            display: block;
+            margin: auto;
+        }
+        button{
+            background-color: $main-color;
+            padding: 10px 15px;
+            font-family: "medium";
+            font-size: 14px;
+            color: $clear-text;
+            border: none;
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                background-color: $secondary-color;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+}

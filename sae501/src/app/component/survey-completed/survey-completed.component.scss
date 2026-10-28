@@ -1,0 +1,20 @@
+@import "../../../styles.scss";
+.content{
+    background: linear-gradient(20deg, #875DBD 0%, #3931C1 100%);
+    padding: 20px;
+    border-radius: 30px;
+    @include flex(column, center, center);
+
+    p{
+        font-size: 'bold';
+        text-align: center;
+        width: 60%;
+        font-size: 18px;
+        color: $clear-text;
+    }
+
+    img{
+        width: 50%;
+        max-width: 250px;
+    }
+}

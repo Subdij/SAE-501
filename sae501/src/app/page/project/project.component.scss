@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+
+#container-project{
+    width: 100%;
+    height: 83vh;
+    @include flex(row, flex-start, space-around);
+    app-project-list{
+        width: 70%;
+        height: 100%;
+    }
+    app-add-user{
+        width: 22%;
+        height: 100%;
+        @include flex(row, flex-start, flex-start);
+    }
+    @media screen and (width < 1051px){
+        @include flex(column, center, space-between);
+        app-project-list, app-add-user{
+            width: 95%;
+        }
+        app-project-list{
+            height: 62%;
+        }
+        app-add-user{
+            height: 30%;
+            margin-bottom: 30px;
+        }
+    }
+}

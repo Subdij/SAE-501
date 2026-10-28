@@ -1,0 +1,36 @@
+<div id="container-add">
+    <div id="content">
+        <img src="{{imgSrc}}" alt="{{data.type}}">
+        <span>{{title}}</span>
+        <p>{{desc}}</p>
+        <form [formGroup]="this.userForm" (ngSubmit)="this.onUserSubmit()" *ngIf="!project">
+            <input formControlName="email" type="email" name="email" id="email" placeholder="Adresse mail">
+            <input formControlName="firstName" type="text" name="firstName" id="firstName" placeholder="Prénom">
+            <input formControlName="lastName" type="text" name="lastName" id="lastName" placeholder="Nom">
+            <input formControlName="phoneNumber" type="text" name="phoneNumber" id="phoneNumber" placeholder="N° Tel.">
+            <div id="container-btn">
+                <button id="cancel" (click)="closePopup()">Annuler</button>
+                <input type="submit" id="add" [ngClass]="data.type" value="{{btn}}">
+            </div>
+            <app-form-error [errorMessages]="this.userErrors" *ngIf="this.isAtLeastOneError() && this.isSubmit"></app-form-error>
+        </form>
+        <form [formGroup]="this.projectForm" (ngSubmit)="this.onProjectSubmit()" *ngIf="project">
+            <input formControlName="title" type="text" name="title" id="title" placeholder="Titre">
+            <label for="image" id="imgLabel">
+                <div>{{ fileName || "Image" }}</div>
+                <img src="../../../assets/images/icones/add-file.png" alt="add file">
+                <input formControlName="image" type="file" name="image" id="image" accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+            </label>
+            <textarea formControlName="description" name="description" id="description" placeholder="Description"></textarea>
+            <input formControlName="author" type="text" name="author" id="author" placeholder="Auteur">
+            <input formControlName="study_year" type="number" name="study_year" id="study_year" placeholder="Année d'étude (1, 2 ou 3)">
+            <input formControlName="date" type="date" name="date" id="date">
+            <input formControlName="link" type="text" name="link" id="link" placeholder="Lien">
+            <div id="container-btn">
+                <button id="cancel" (click)="closePopup()">Annuler</button>
+                <input type="submit" id="add" [ngClass]="data.type" value="{{btn}}">
+            </div>
+            <app-form-error [errorMessages]="this.projectErrors" *ngIf="this.isAtLeastOneError() && this.isProjectSubmit"></app-form-error>
+        </form>
+    </div>
+</div>

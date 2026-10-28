@@ -1,0 +1,23 @@
+<div id="header" *ngIf="menuService.isHeaderVisible">
+    <img id="logo-univ" routerLink="" src="../../../assets/images/icones/logo.png" alt="Université Gustave Eiffel">
+    <div id="container-nav">
+        <nav>
+            <a routerLinkActive="currentpage" routerLink="visite">Visite Virtuelle</a>
+
+            <a routerLinkActive="currentpage" routerLink="formation">Formation</a>
+            <a routerLinkActive="currentpage" routerLink="parcours" *ngIf="!this.isAdmin">Parcours</a>
+            <a routerLinkActive="currentpage" routerLink="sondage" *ngIf="!this.isAdmin">Vos Retours</a>
+            <a routerLinkActive="currentpage" routerLink="administration" *ngIf="this.isAdmin && this.isAuthenticated">Administration</a>
+        </nav>
+    </div>
+    <img id="burger" (click)="toggleMenu()" src="../../../assets/images/icones/burger_menu.png" alt="Ouvrir le menu">
+    <div class="btn-container" *ngIf="!this.isAuthenticated">
+        <button class="btn" id="login" routerLink="connexion">Connexion</button>
+        <button class="btn" id="sign-up" routerLink="inscription">Inscription</button>
+    </div>
+    <div class="btn-container" *ngIf="this.isAuthenticated">
+        <span>Bonjour {{this.name | titlecase}} !</span>
+        <img src="assets/images/icones/log_out.png" alt="" (click)="this.authentication.logOut()">
+    </div>
+</div>
+<app-mobile-nav *ngIf="isMenuOpen" (closeMenu)="closeMenu()"></app-mobile-nav>

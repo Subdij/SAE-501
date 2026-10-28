@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+#container-admin{
+    min-height: calc(100vh - 100px);
+    padding-top: 100px;
+    margin-bottom: 20px;
+    app-admin-menu{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 500;
+    }
+    @media screen and (width > 850px){
+        @include flex(row, flex-start, flex-start);
+        padding-top: 130px;
+        min-height: 83vh;
+        app-admin-menu{
+            position: relative;
+            bottom: unset;
+            left: unset;
+            width: 230px;
+            height: 100%;
+            @include flex(row, flex-start, flex-end);
+            margin-right: 10px;
+        }
+    }
+}

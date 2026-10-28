@@ -1,0 +1,13 @@
+<div id="mobile-menu">
+    <img id="close" (click)="onCloseMenu()" src="../../../assets/images/icones/croix.png" alt="fermer">
+    <nav>
+        <a routerLink="visite">Visite Virtuelle</a>
+        <a routerLink="formation">Formation</a>
+        <a routerLink="sondage" *ngIf="this.isAuthenticated && !this.isAdmin">Vos Retours</a>
+        <a routerLink="parcours" *ngIf="!this.isAdmin">Parcours</a>
+        <a routerLink="connexion" *ngIf="!this.isAuthenticated">Connexion</a>
+        <a routerLink="inscription" *ngIf="!this.isAuthenticated">Inscription</a>
+        <a routerLink="administration" *ngIf="this.isAdmin && this.isAuthenticated">Administration</a>
+        <a *ngIf="this.isAuthenticated" (click)="this.authentication.logOut()">Déconnexion</a>
+    </nav>
+</div>

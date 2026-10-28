@@ -1,0 +1,20 @@
+#intro{
+    font-family: "bold";
+}
+
+#container-card-ecoles{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1em;
+}
+
+#blabla{
+    text-align: justify;
+}
+
+@media screen and (max-width: 1100px){
+    #container-card-ecoles{
+        grid-template-columns: 1fr;
+    }    
+}

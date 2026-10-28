@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+        <div class="card-title">
+            <h3>
+                {{title}}
+            </h3>
+        </div>
+    </div>
+    <div class="card-content">
+        <p class="sec_title">Activités principales</p>
+        <ul>
+            <ng-container *ngFor="let data of description; let index = index">
+                <li>{{data}}</li>
+            </ng-container>
+        </ul>
+    </div>
+</div>

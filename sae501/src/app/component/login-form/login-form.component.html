@@ -1,0 +1,19 @@
+<div id="login-form-container">
+    <h2>Connexion</h2>
+    <form [formGroup]="this.loginForm" (ngSubmit)="this.onSubmit()">
+        <input type="email" name="email" id="email" placeholder="Email" formControlName="email" [ngClass]="{'inputError': (this.loginForm.get('email')?.hasError('email') || this.loginForm.get('email')?.hasError('required')) && this.isSubmit}">
+        <div class="eye-input">
+            <input [type]=" showPassword ? 'text' : 'password' " name="password" id="password" placeholder="Mot de passe" formControlName="password" [ngClass]="{'inputError': this.loginForm.get('password')?.hasError('required') && this.isSubmit}">
+            <div (click)='showHidePassword()'>
+                <img src="../../../assets/images/icones/eye.png" *ngIf="!showPassword">
+                <img src="../../../assets/images/icones/slash-eye.png" *ngIf="showPassword">
+            </div>
+        </div>
+        <input type="submit" value="Se connecter">
+        <app-form-error [errorMessages]="this.errors" *ngIf="this.authentication.isAtLeastOneError(this.errors) && this.isSubmit"></app-form-error>
+    </form>
+    <div id="sign-up">
+        <p>Vous n'avez pas de compte ?</p>
+        <a routerLink="../inscription">Inscrivez-vous !</a>    
+    </div>
+</div>

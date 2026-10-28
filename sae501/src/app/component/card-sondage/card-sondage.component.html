@@ -1,0 +1,48 @@
+<div class="card-sondage" *ngFor="let data of sondageData" [formGroup]="this.formGroup">
+    <div class="all-infos">
+        <div id="container-question">
+            <div class="numberCircle">
+                <i>{{data.numQuestion}}</i>
+            </div>
+            <p>{{data.question}}</p>
+        </div>
+        <div id="container-desc-input">
+            <span>{{data.comment}}</span>
+            <input type="text" name="{{data.name}}" id="{{data.name}}" *ngIf="data.inputText" [formControlName]="data.name">
+    
+            <div id="inputAge" *ngIf="data.inputAge">
+                <input type="number" name="{{data.name}}" id="{{data.name}}" min="1" max="100" [formControlName]="data.name">
+                <span>ans</span>
+            </div>
+            <input type="number" name="{{data.name}}" id="{{data.name}}" maxlength="5" *ngIf="data.inputNumber" [formControlName]="data.name">
+        </div>
+        
+        <div *ngIf="data.radio" class="input-radio">
+            <ng-container *ngFor="let radio of radioData; let i = index">
+                <ng-container *ngFor="let dataRadio of radioData[i]">
+                    <div *ngIf="dataRadio.name == data.name">
+                        <input type="radio" name="{{data.name}}" value="{{dataRadio.value}}" [formControlName]="data.name">
+                        <label for="{{data.name}}">{{dataRadio.rep}}</label>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <div *ngIf="data.checkbox" class="input-checkbox">
+            <ng-container *ngFor="let checkbox of checkboxData; let i = index">
+                <ng-container *ngFor="let dataCheckbox of checkboxData[i]; let j = index">
+                    <div *ngIf="dataCheckbox.name == data.name" formArrayName="{{data.name}}">
+                        <input type="checkbox" name="{{data.name}}" value="{{dataCheckbox.value}}" [formControlName]="j">
+                        <label for="{{data.name}}">{{dataCheckbox.rep}}</label>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <textarea name="{{data.name}}" id="{{data.name}}" *ngIf="data.textArea" [formControlName]="data.name"></textarea>
+
+        <div *ngIf="data.eval" class="eval">
+            <div *ngFor="let satisfaction of this.satisfactionButtons" class="nbEval" [ngClass]="{'active': satisfaction.active}" (click)="this.emitSatisfaction(satisfaction.number)">{{satisfaction.number}}</div>
+        </div>
+    </div>
+</div>

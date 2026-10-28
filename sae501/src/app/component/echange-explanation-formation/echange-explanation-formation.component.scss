@@ -1,0 +1,18 @@
+@import '../../../styles.scss';
+
+.tip-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 150fr;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    margin-bottom: 1em;
+    .tip-content{
+        padding-inline: 1em;
+        .title{
+            font-family: "bold";
+        }
+        background-color: white;
+        margin: 0;
+    }
+}

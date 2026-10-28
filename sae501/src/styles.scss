@@ -1,0 +1,436 @@
+//fonts
+@font-face {
+  font-family: "text";
+  src: url("assets/font/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "bold";
+  src: url("assets/font/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "light";
+  src: url("assets/font/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "medium";
+  src: url("assets/font/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "semi-bold";
+  src: url("assets/font/Poppins-SemiBold.ttf");
+}
+@font-face{
+    font-family: "title-frise";
+    src: url("assets/font/SecularOne-Regular.ttf");
+}
+
+// variables
+$main-color: #2f2a85;
+$transparent-main-color: rgba(47, 42, 133, 0.7);
+$secondary-color: #4f47da;
+$form-background: rgba(65, 60, 150, 0.5);
+$footer: #0d1625;
+
+$popup-text-color: #838383;
+$link-ecoles: #e8e8e8;
+$link-ecoles-hover: #cecece;
+
+$menu-admin-text-color: #6d6d6d;
+$menu-admin: #e2e2e2;
+
+$dark-color: #000;
+$clear-text: #fff;
+$clear-background: #ececec;
+
+$add: #22b414;
+$add-hover: #1e9e11;
+$edit: #0066ff;
+$edit-hover: #0052cc;
+$delete: #ff3f56;
+$delete-hover: #e62e3a;
+$delete-btn: #ffd3d3;
+$hoverdeletebtn: #fabdbd;
+
+$dark-color: #000;
+$warning-background: rgba(255, 229, 0, 0.24);
+$warning: #d2b100;
+
+$card-yellow: #f8e0a5;
+$card-blue: #9EC8FC;
+$card-brown: #caab8d;
+$experience-blue: #9EC8FC;
+$experience-dark-blue: #6a94b2;
+
+$violet-frise : #632A9C;
+
+//mixins
+@mixin flex($direction, $items, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $items;
+  justify-content: $justify;
+}
+@mixin form($max-width, $input-margin) {
+  background-color: $form-background;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  width: 80%;
+  max-width: $max-width;
+  margin: auto;
+  color: $clear-text;
+  font-family: "text";
+  font-size: 16px;
+  padding: 10px 0 40px;
+  h2 {
+    font-family: "bold";
+    font-size: 25px;
+    @media screen and (width > 1000px) {
+      font-size: 35px;
+    }
+  }
+  form {
+    @include flex(column, center, center);
+    width: 70%;
+    input {
+      padding: 0;
+      width: 100%;
+      height: 45px;
+      border-radius: 8px;
+      border: 1px solid $clear-text;
+      background: transparent;
+      margin: $input-margin;
+      text-indent: 10px;
+      color: $clear-text;
+      font-family: "text";
+      font-size: 16px;
+      &::placeholder {
+        color: $clear-text;
+        font-family: "text";
+        font-size: 16px;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    background-color: $main-color;
+    border: none;
+    color: $clear-text;
+    font-family: "text";
+    font-size: 16px;
+    cursor: pointer;
+  }
+  input[type="submit"] {
+    width: 100% !important;
+    height: 45px !important;
+    border-radius: 8px !important;
+    background-color: $main-color !important;
+    border: none !important;
+    color: $clear-text !important;
+    font-family: "text" !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: $secondary-color !important;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  .eye-input {
+    width: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      height: 16px;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    color: $clear-text;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+@mixin roomDisplayed() {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: "text";
+  font-size: 15px;
+  transform: translateX(-50%);
+  min-width: 85px;
+  text-align: center;
+}
+@mixin roomDisplayed750px() {
+  padding: 5px 7.5px;
+  font-size: 12px;
+  min-width: 60px;
+}
+@mixin roomDisplayed550px() {
+  font-family: "text";
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 8px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  min-width: 50px;
+}
+@mixin toastr($color) {
+  @include flex(row, center, space-around);
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  padding: 7px 15px;
+  border-radius: 5px;
+  background-color: $clear-text;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 3.5px;
+  .toast-message {
+    @include flex(row, center, space-around);
+    font-family: "medium";
+    font-size: 15px;
+    color: $dark-color;
+    text-align: center;
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+    }
+  }
+  .toast-close-button {
+    display: none;
+  }
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: $color;
+  }
+}
+@mixin list() {
+  background-color: $clear-text;
+  font-family: "medium";
+  border-radius: 20px;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  h3 {
+    font-size: 20px;
+    margin: 20px 0 30px 5px;
+  }
+  #container-table {
+    width: 100%;
+    max-height: 85%;
+    overflow: auto;
+    display: inline-block;
+
+  }
+  table {
+    width: 100%;
+    font-family: "text";
+    font-size: 15px;
+    border-collapse: collapse;
+    white-space: nowrap;
+    tr {
+      border-bottom: 1px solid $menu-admin;
+      td {
+        padding-right: 10px;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    thead {
+      position: sticky;
+      top: 0;
+      display: table-header-group;
+      background-color: $menu-admin;
+      font-size: 16px;
+      tr {
+        border-bottom: none;
+      }
+      th {
+        text-align: left;
+        padding: 12px 10px 12px 0;
+        &:first-child {
+          padding-left: 15px;
+          border-radius: 8px 0 0 8px;
+        }
+        &:last-child {
+          border-radius: 0 8px 8px 0;
+        }
+        .sorter{
+          @include flex(row, center, flex-start);
+          cursor: pointer;
+          gap: 5px;
+          img{
+            width: 25px;
+            transition: 0.2s;
+            &.up{
+              transform: rotate(-180deg);
+            }
+          } 
+          &.active{
+            color: $main-color;
+          } 
+        }
+      }
+    }
+    tbody {
+      tr {
+        height: 45px;
+        td {
+          &:first-child {
+            padding-left: 15px;
+          }
+        }
+        .delete-cell {
+          width: 100px;
+        }
+        .edit-cell {
+          width: 50px;
+        }
+      }
+      .delete {
+        background-color: $delete-btn;
+        font-family: "medium";
+        color: $delete;
+        border: none;
+        border-radius: 5px;
+        padding: 7px 13px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: $hoverdeletebtn;
+          transition: all 0.2s ease-in-out;
+      }
+    }
+      .modifiers {
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@mixin fleche($bg-color, $width, $padding, $family, $size, $left, $left2, $border, $color, $color2, $text-color){
+    background-color: $bg-color;
+    width: $width;
+    height: 60px;
+    position: relative;
+    padding: $padding;
+    p{
+        margin: 0;
+        color: $clear-text;
+        font-family: "title-frise";
+        text-transform: uppercase;
+        font-size: 20px;
+        span{
+            font-family: "title-frise";
+            font-size: 10px;
+            color: $clear-text;
+            text-transform: uppercase;
+        }
+    }
+    span{
+        font-family: $family;
+        font-size: $size;
+        color: $text-color;
+        vertical-align: middle;
+        z-index: 120;
+        text-wrap: nowrap;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        left: $left !important;
+        top: 0 !important;
+        height: 0;
+        width: 0;
+        border-top: solid $border transparent;
+        border-left: solid $border $color;
+        border-bottom: solid $border transparent;
+
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        left: $left2 !important;
+        top: 0 !important;
+        height: 0;
+        width: 0;
+        border-top: solid $border transparent;
+        border-left: solid $border $color2;
+        border-bottom: solid $border transparent;
+    }
+}
+@mixin inputFont(){
+    font-family: 'medium';
+    font-size: 14px;
+    color: $footer;
+    padding: 0px 15px;
+}
+
+// global style
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: $clear-background;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+}
+.none{
+    display: none;
+}
+app-users, app-statistique{
+    width: 90%;
+}
+app-sondage-details, app-project-list{
+    display: block;
+    width: 90%;
+    height: 83vh;
+    overflow: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+    @media screen and (width < 851px) {
+        width: unset;
+    }
+}
+.inputError{
+    border: 2px solid $delete-hover !important;
+}
+.toast-success{
+    @include toastr($add);
+}
+.toast-error{
+    @include toastr($delete-hover);
+}
+.currentpage{
+    border-bottom: solid 3px $clear-text;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(133, 133, 133); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(100, 100, 100); 
+}

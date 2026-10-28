@@ -1,0 +1,7 @@
+<p>Après un BUT MMI, les diplômés ont accès à un large éventail d'opportunités professionnelles. Les exemples suivant ne sont qu'une partie des métiers accessibles.</p>
+
+<div class="cards-metiers">
+    <ng-container *ngFor="let data of datas">
+        <app-insertion-card-formation [title]="data.title" [description]="data.description" [image]="data.image"></app-insertion-card-formation>
+    </ng-container>
+</div>

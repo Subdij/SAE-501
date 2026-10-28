@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+#container-user-list{
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+    @include list();
+    @media screen and (width < 1051px){
+        height: 100%;
+    }
+    .modifiers{
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+}

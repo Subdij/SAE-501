@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+#header{
+    position:fixed;
+    z-index: 999;
+    min-width: 100%;
+    background-color: $main-color;
+    height: 65px;
+    @include flex(row, center, space-between);
+    #logo-univ{
+        width: 145px;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+    #container-nav{
+        @include flex(row, center, left);
+        width: 80%;
+        height: 100%;
+        nav{
+            margin-left: 40px;
+            @include flex(row, center, space-between);
+            height: 100%;
+            a{
+                @include flex(row, center, space-between);
+                height: 95%;
+                font-family: "text";
+                color: $clear-text;
+                font-size: 16px;
+                cursor: pointer;
+                text-decoration: none;
+                margin-right: 25px;
+            }
+        }
+    }
+    #burger{
+        padding-right: 20px;
+    }
+    .btn-container{
+        @include flex(row, center, space-evenly);
+        width: 300px;
+        min-width: 250px;
+        height: 100%;
+        .btn{
+            font-family: "text";
+            font-size: 16px;
+            border-radius: 5px;
+            padding: 5px 13px;
+            border: 1px solid $clear-text;
+            cursor: pointer;
+        }
+        #login{
+            color: $clear-text;
+            background-color: transparent;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                background-color: $clear-text;
+                color: $main-color;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        #sign-up{
+            color: $main-color;
+            background-color: $clear-text;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                background-color: $link-ecoles-hover;
+                transition: all 0.3s ease-in-out;
+                border-color: $link-ecoles-hover;
+            }
+        }
+        span{
+            font-family: "text";
+            font-size: 15px;
+            color: $clear-text;
+        }
+        img{
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+    @media screen and (width > 999px){
+        #burger{
+            display: none;
+        }
+    }
+    @media screen and (width < 1000px){
+        #container-nav, .btn-container{
+            display: none;
+        }
+    }
+}

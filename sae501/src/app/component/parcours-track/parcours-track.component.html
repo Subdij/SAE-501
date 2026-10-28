@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="line">
+        <div class="filled-line" [ngStyle]="{width: this.lineWidth}"></div>
+        <ng-container *ngFor="let dot of this.dots">
+            <div class="dot" [ngStyle]="{left: dot.leftPosition+'%', backgroundColor: dot.backgroundColor}"></div>
+        </ng-container>
+    </div>
+    <div class="rooms">
+        <ng-container *ngFor="let room of this.roomsToDisplay; let roomIndex=index">
+            <div class="room-container-ordi" [ngStyle]="{left: room.leftPosition+'%'}">
+                <div [ngClass]="{'room': room.filled, 'toDefine': !room.filled}">{{room.label | uppercase}}</div>
+                <div class="hover" (click)="this.deleteRoom(roomIndex)"><img src="assets/images/icones/croix.png" alt=""></div>
+            </div>
+            <div class="room-container-phone" [ngStyle]="{left: room.leftPosition+'%'}">
+                <div [ngClass]="{'room': room.filled, 'toDefine': !room.filled}">{{this.getPhoneLabel(room.label)| uppercase}}</div>
+                <div class="hover" (click)="this.deleteRoom(roomIndex)"><img src="assets/images/icones/croix.png" alt=""></div>  
+            </div>
+        </ng-container>
+    </div>
+</div>

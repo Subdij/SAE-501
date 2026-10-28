@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+#frise-orga{
+    @include flex(row, space-evenly, center);
+    width: calc(100% - 38px);
+    margin: 30px 0 40px;
+    #fleche1{
+        z-index: 100;
+    }
+    #fleche2{
+        z-index: 90;
+    }
+    #fleche3{
+        z-index: 85;
+    }
+    #fleche4{
+        @include fleche($violet-frise, 135px, 8px 0 8px 45px, "light", 13px, 0px, 100%, 38px, $clear-background, $violet-frise, $clear-text);
+        z-index: 80;
+    }
+    .fleche{
+        @include fleche($main-color, 115px, 8px 0 8px 45px, "light", 13px, 0px, 100%, 38px, $clear-background, $main-color, $clear-text);
+        margin-right: 7px;
+    }
+    .entre-fleche{
+        @include fleche($clear-text, 77px, 11px 0 5px 40px, "semi-bold", 15px, 0px, 100%, 38px, $clear-background, $clear-text, $dark-color);
+        margin-right: 7px;
+    }
+}
+@media screen and (width < 851px) {
+    #frise-orga{
+        display: none;
+    }
+    #frise-mobile{
+        display: flex !important;
+    }
+}
+
+#frise-mobile{
+    @include flex (row, center, center);
+    display: none;
+    padding: 30px 0 80px;
+    #trait{
+        height: 600px;
+        width: 3px;
+        background-color: $popup-text-color;
+        position: relative;
+        margin-right: 25px;
+        #container-rond{
+            height: 100%;
+            @include flex(column, center, space-around);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            .rond-frise{
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: $popup-text-color
+            }
+        }
+    }
+    #container-frise{
+        height: 600px;
+        @include flex(column, center, space-around);
+        .card-frise{
+            padding:20px;
+            @include flex(column, flex-start, space-evenly);
+            font-family: "light";
+            color: $clear-text;
+            height: 60px;
+            width: 200px;
+            border-radius: 10px;
+            background-color: $violet-frise;
+            p{
+                margin: 0;
+            }
+        }
+        .card-frise-annee{
+            p{
+                font-family: "title-frise";
+                font-size: 18px;
+            }
+        }
+        #card1, #card2{
+            background-color: $main-color;
+        }
+        #card3, #card5{
+            background-color: $clear-text;
+            color: $dark-color;
+            p {
+                align-self: center;
+                font-family: "semi-bold";
+            }
+        }
+    }
+}

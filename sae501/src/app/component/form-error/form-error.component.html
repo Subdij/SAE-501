@@ -1,0 +1,8 @@
+<div class="error" [ngStyle]="this.styleError">
+    <ng-container *ngFor="let errorMessage of this.errorMessages">
+        <p *ngIf="errorMessage.condition()" [ngStyle]="{textAlign: this.stylePara}">
+            <img src="assets/images/icones/error.png" alt="">
+            {{ errorMessage.message }}
+        </p>    
+    </ng-container>
+</div>

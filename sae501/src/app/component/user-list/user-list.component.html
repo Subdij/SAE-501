@@ -1,0 +1,40 @@
+<div id="container-user-list">
+    <h3>Liste des Utilisateurs</h3>
+    <div id="container-table">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let sorter of this.sorters">
+                        <div class="sorter" [ngClass]="{'active': sorter.active}" (click)="this.arraySorter.activeArrow(sorter, this.sorters, this.users)" *ngIf="sorter.sorter">
+                            {{sorter.title}}
+                            <img 
+                                *ngIf="!sorter.active"
+                                src="assets/images/icones/arrow-down.png" alt="" 
+                                [ngClass]="{'active': sorter.active}"
+                            >
+                            <img 
+                                *ngIf="sorter.active"
+                                src="assets/images/icones/arrow-down-active.png" alt="" 
+                                [ngClass]="{'active': sorter.active, 'up': sorter.up}"
+                            >
+                        </div>
+                        <ng-container *ngIf="!sorter.sorter">{{sorter.title}}</ng-container>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.mail}}</td>
+                    <td>{{user.first_name | titlecase}}</td>
+                    <td>{{user.last_name | titlecase}}</td>
+                    <td>{{user.phone | phone}}</td>
+                    <td class="delete-cell">
+                        <button (click)="openDeletePopup(user.id)" class="delete">Supprimer</button>
+                        <img class="modifiers" (click)="openEditPopup(user.id)" src="../../../assets/images/icones/small_edit.png" alt="">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

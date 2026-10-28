@@ -1,0 +1,11 @@
+<div id="container-delete">
+    <div id="content">
+        <img src="../../../assets/images/icones/alert.png" alt="alert">
+        <span>Êtes-vous sûr ?</span>
+        <p>Cette action est irréversible. Toutes les données seront perdues.</p>
+        <div id="btn-container">
+            <button id="cancel" (click)="closePopup()">Finalement non.</button>
+            <button id="delete" (click)="[deleteUser(), deleteProject()]">Oui, supprimer !</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div id="form-container">
+    <div id="form">
+        <h2>Inscription</h2>
+        <form [formGroup]="this.signUpForm" (ngSubmit)="this.onSubmit()">
+            <div id="container-name">
+                <input type="text" class="margin-right" name="firstName" id="firstName" placeholder="Prénom" formControlName="firstName" [ngClass]="{'inputError': this.signUpForm.get('firstName')?.hasError('required') && this.isSubmit}">
+                <input type="text" name="lastName" id="lastName" placeholder="Nom" formControlName="lastName" [ngClass]="{'inputError': this.signUpForm.get('lastName')?.hasError('required') && this.isSubmit}">
+            </div>
+            <div id="container-infos">
+                <input type="email" class="margin-right" name="email" id="email" placeholder="Email" formControlName="email" [ngClass]="{'inputError': this.signUpForm.get('email')?.hasError('required') && this.isSubmit}">
+                <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Téléphone" formControlName="phone" [ngClass]="{'inputError': (this.signUpForm.get('phone')?.hasError('required') || this.signUpForm.get('phone')?.hasError('pattern')) && this.isSubmit}">    
+            </div>
+            <div class="eye-input">
+                <input [type]=" showPassword ? 'text' : 'password' " name="password" id="password" placeholder="Mot de passe" formControlName="password" [ngClass]="{'inputError': (this.signUpForm.get('password')?.hasError('required') || this.signUpForm.get('password')?.hasError('minlength') || !this.isPasswordMatchConfirmPassword()) && this.isSubmit}">
+                <div (click)='showHidePassword()'>
+                    <img src="../../../assets/images/icones/eye.png" *ngIf="!showPassword">
+                    <img src="../../../assets/images/icones/slash-eye.png" *ngIf="showPassword">
+                </div>
+            </div>
+            <div class="eye-input">
+                <input [type]=" showConfirmPassword ? 'text' : 'password' " name="confirmPassword" id="confirmPassword" placeholder="Confirmation" formControlName="confirmPassword" [ngClass]="{'inputError': (this.signUpForm.get('confirmPassword')?.hasError('required') || !this.isPasswordMatchConfirmPassword()) && this.isSubmit}">
+                <div (click)='showHideConfirmPassword()'>
+                    <img src="../../../assets/images/icones/eye.png" *ngIf="!showConfirmPassword">
+                    <img src="../../../assets/images/icones/slash-eye.png" *ngIf="showConfirmPassword">
+                </div>
+            </div>
+            <input type="submit" value="S'inscrire">
+            <app-form-error [errorMessages]="this.errors" *ngIf="this.authentication.isAtLeastOneError(this.errors) && this.isSubmit"></app-form-error>
+        </form>
+        <div id="login">
+            <p>Vous avez déjà un compte ?</p>
+            <a routerLink="../connexion">Connectez-vous !</a>    
+        </div>
+    </div>
+    <div id="container-login">
+        <img src="../../../assets/images/sign-up.png">
+        <p>Vous avez déjà un compte ?</p>
+        <a routerLink="../connexion">Connectez-vous !</a>
+    </div>
+</div>

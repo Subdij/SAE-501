@@ -1,0 +1,37 @@
+<div id="container-sondage-details">
+    <h3>Réponses détaillées du sondage</h3>
+    <div id="container-table">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let sorter of this.sorters">
+                        <div class="sorter" [ngClass]="{'active': sorter.active}" (click)="this.arraySorter.activeArrow(sorter, this.sorters, responses)" *ngIf="sorter.sorter">
+                            {{sorter.title}}
+                            <img 
+                                *ngIf="!sorter.active"
+                                src="assets/images/icones/arrow-down.png" alt="" 
+                                [ngClass]="{'active': sorter.active}"
+                            >
+                            <img 
+                                *ngIf="sorter.active"
+                                src="assets/images/icones/arrow-down-active.png" alt="" 
+                                [ngClass]="{'active': sorter.active, 'up': sorter.up}"
+                            >
+                        </div>
+                        <ng-container *ngIf="!sorter.sorter">{{sorter.title}}</ng-container>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let response of responses">
+                    <td>{{response.user}}</td>
+                    <td>{{response.first_name | titlecase }}</td>
+                    <td>{{response.last_name | titlecase }}</td>
+                    <td>{{response.etablissement | titlecase }}</td>
+                    <td>{{response.code_postal}}</td>
+                    <td>{{response.schools | truncate: 20 | titlecase}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

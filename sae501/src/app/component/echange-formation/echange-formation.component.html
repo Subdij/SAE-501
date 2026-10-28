@@ -1,0 +1,17 @@
+<div class="echange-container">
+    <div class="echange-content">
+        <p>Au cours de la 2ème année de MMI, il est possible de réaliser un échange à l’UQAC (Université du Québec à Chicoutimi) le temps du 4ème semestre d’études, entre janvier et avril.<br>
+            
+            Pour les étudiants en MMI, deux programmes sont disponibles suivant leur parcours professionnel : </p>
+            <ul>
+                <li>Programme court de premier cycle en <strong>Arts</strong></li>
+                <li>Programme court de premier cycle en <strong>Informatique</strong></li>
+            </ul>
+            <ng-container *ngFor="let data of datas">
+                <app-echange-explanation-formation [title]="data.title" [description]="data.description" [sideColor]="data.color"></app-echange-explanation-formation>
+            </ng-container>
+
+    </div>
+    <img src="../../../assets/images/canada.png" alt="Canada">
+
+</div>

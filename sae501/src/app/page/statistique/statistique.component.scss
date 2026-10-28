@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+
+h2{
+    font-family: "bold";
+    font-size: 22px;
+    &:first-child{
+        margin-top: -31px;
+        margin-bottom: 0;
+        @media screen and (width < 851px){
+            display: none;
+        }
+    }
+    @media screen and (width < 851px){
+        margin-left: 20px;
+    }
+}
+#container-card-graph{
+    @include flex(row, center, flex-start);
+    @media screen and (width < 1395px){
+        @include flex(row, center, space-evenly);
+    }
+    flex-wrap: wrap;
+    min-width: 100%;
+    app-card-graph{
+        margin:0 20px 15px 0;
+    }
+}

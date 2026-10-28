@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="title">
+        <h2>Définissez votre parcours durant la JPO !</h2>
+        <div class="line"></div>    
+    </div>
+    <p class="description ordi">Lors de notre journée portes ouvertes, de nombreuses salles seront mises à votre disposition afin que vous puissez observer les nombreux projets et travaux étudiants. Au sein de notre université, chaque salle est réservée à un domaine particulier. Choisissez dès à présent les salles que vous souhaitez visiter.</p>
+    <p class="description phone">De nombreuses salles seront mises à votre disposition pour observer les projets et travaux étudiants. A l’IUT, chaque salle est réservée à un domaine particulier. Choisissez dès à présent les salles que vous souhaitez visiter.</p>
+    <app-warning [warningData]="this.warningData"></app-warning>
+    <h3>Salles disponibles :</h3>
+    <div class="rooms">
+        <app-room-card [roomCardData]="this.room133" *ngIf="this.parcoursService.isRoomInRooms('Salle 133')"></app-room-card>
+        <app-room-card [roomCardData]="this.room212" *ngIf="this.parcoursService.isRoomInRooms('Salle 212')"></app-room-card>
+        <app-room-card [roomCardData]="this.room311" *ngIf="this.parcoursService.isRoomInRooms('Salle 311')"></app-room-card>
+        <app-room-card [roomCardData]="this.room317" *ngIf="this.parcoursService.isRoomInRooms('Salle 317')"></app-room-card>
+        <app-room-card [roomCardData]="this.studio" *ngIf="this.parcoursService.isRoomInRooms('Studio')"></app-room-card>
+    </div> 
+    <div class="track">
+        <h3>Votre parcours :</h3>
+        <app-parcours-track [numberDot]="5"></app-parcours-track>
+        <div class="buttons">
+            <button class="reset" (click)="this.resetParcours()">Réintialiser le parcours</button>
+            <button class="save" (click)="this.parcoursService.saveParcours()">Enregistrer le parcours</button>
+        </div>
+    </div>   
+</div>

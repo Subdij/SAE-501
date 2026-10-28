@@ -1,0 +1,19 @@
+<div class="card-projets">
+    <div class="card-projets-img" [ngStyle]="{'background-image': 'url(https://sae501.alwaysdata.net/ressources/' + image + ')'}"></div>
+
+    <div class="card-details">
+        <div class="card-infos">
+            <h3 class="card-projets-title">{{title | decodeHtmlString}}</h3>
+            <p class="card-projets-description">{{description | decodeHtmlString}}</p>    
+        </div>
+        <div class="card-meta">
+            <p class="card-projets-author">Par <strong>{{author | decodeHtmlString}}</strong></p>
+            <p class="card-projets-date">Crée le <strong>{{date | date: 'dd/MM/yyyy'}}</strong></p>
+        </div>
+    </div>
+
+    <a class="card-projets-link" href="{{link}}" target="_blank">
+        <img src="../../../assets/images/icones/see_project.png" alt="">
+        Voir le projet
+    </a>
+</div>

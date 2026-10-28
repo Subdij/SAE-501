@@ -1,0 +1,145 @@
+@import '../../../styles.scss';
+
+#container-add{
+    background-color: $clear-text;
+    width: 95%;
+    max-height: 95vh;
+    overflow-x: auto;
+    max-width: 420px;
+    min-width: 320px;
+    border-radius: 20px;
+    margin: auto;
+    @media screen and (width < 430px){
+        #container-btn {
+            max-width: 280px !important;
+            button{
+                width: 130px !important;
+            }
+        }
+    }
+    #content{
+        @include flex(column, center, space-evenly);
+        font-family: "text";
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 20px 0 30px;
+        img:first-child{
+            width: 65px;
+            height: 65px;
+        }
+        span{
+            font-family: "semi-bold";
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        p{
+            color: $popup-text-color;
+            font-size: 14px;
+            max-width: 320px;
+            margin: 10px 0;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+        form{
+            @include flex(column, center, center);
+            width: 100%;
+            input, textarea, #imgLabel{
+                padding: 0 10px;
+                min-height: 35px;
+                width: 100%;
+                max-width: 280px;
+                border-radius: 8px;
+                border: 1px solid $dark-color;
+                color: $dark-color;
+                font-family: 'text';
+                font-size: 14px;
+                margin: 5px 0 10px;
+                &::placeholder{
+                    color: $popup-text-color;
+                    font-family: 'text';
+                    font-size: 14px;
+                }
+                &:focus{
+                    outline-color:$main-color;
+                }
+            }
+            input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator {
+                display: none;
+                -webkit-appearance: none;
+                color: $popup-text-color;
+            }
+            input[type="date"]{
+                text-transform: uppercase;
+                color: $popup-text-color;
+            }
+            input[type="file"]{
+                display: none;
+            }
+            #imgLabel{
+                @include flex(row, center, space-between);
+                div{
+                    width: 80%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    text-align: left;
+                    color: $popup-text-color;
+
+                }
+                img{
+                    margin-right: 8px;
+                }
+            }
+            textarea{
+                resize:vertical;
+                height: 80px;
+                padding-top: 5px;
+            }
+        }
+        #container-btn{
+            width: 100%;
+            max-width: 280px;
+            margin-top: 20px;
+            @include flex(row, center, space-between);
+            button, input[type="submit"]{
+                border-radius: 90px;
+                border: none;
+                height: 38px;
+                width: 130px;
+                font-family: "semi-bold";
+                font-size: 15px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            #cancel{
+                background-color: $menu-admin;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    background-color: $link-ecoles-hover;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+            #add{
+                color: $clear-text;
+            }
+            .add{
+                background-color: $add;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    background-color: $add-hover;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+            .edit{
+                background-color: $edit;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    background-color: $edit-hover;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+    }
+}

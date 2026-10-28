@@ -1,0 +1,8 @@
+<h2>Statistiques remarquables</h2>
+<app-main-statistics></app-main-statistics>
+<h2>Détails des réponses au sondage</h2>
+<div id="container-card-graph">
+    <ng-container *ngFor="let data of chartData; let index = index">
+        <app-card-graph [chartData]="data" [index]="index" [title]="questionTitle[index]"></app-card-graph>
+    </ng-container>
+</div>

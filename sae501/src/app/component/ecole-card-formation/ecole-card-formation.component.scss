@@ -1,0 +1,49 @@
+@import '../../../styles.scss';
+
+.card{
+    display: block;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2.5fr 3fr;
+    box-sizing: border-box;
+    padding-top: 1em;
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h3{
+            text-align: center;
+        }
+    }
+
+    .links{
+        box-sizing: border-box;
+        padding: 1em;
+        display: grid;
+        grid: repeat(3, 1fr) / repeat(2, 1fr);
+        gap: 0.5em;
+        a{
+            font-weight: 600;
+            padding: 0.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: $dark-color;
+            text-decoration: none;
+            background-color: $link-ecoles;
+            border-radius: 5px;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.261);
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.261);
+                transform: translateY(3px);
+                background-color: $link-ecoles-hover;
+            }
+        }
+    }
+}

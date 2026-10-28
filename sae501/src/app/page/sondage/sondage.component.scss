@@ -1,0 +1,71 @@
+@import '../../../styles.scss';
+
+#container-sondage{
+    font-family: 'medium';
+    @include flex(column, center, center);
+    width: 85%;
+    max-width: 750px;
+    margin: auto;
+    #container-desc{
+        width: 100%;
+        margin-bottom: 40px;
+        @media screen and (width > 683px){
+            h2{
+                text-align: left !important;
+            }
+            .line{
+                margin: 0 0 50px !important;
+                width: 100px !important;
+            }
+        }
+        h2{
+            margin: 0;
+            padding: 110px 0 20px;
+            text-align: center;
+            font-size: 25px;
+        }
+        .line{
+            width: 50vw;
+            max-width: 200px;
+            height: 4px;
+            background-color: $main-color;
+            margin: 0 auto 50px;
+        }
+        p{
+            text-align: justify;
+        }
+    }
+    app-survey-completed{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    form{
+        width: 100%;
+        #container-card{
+            @include flex(column, center, center);
+            width: 100%;
+            app-card-sondage{
+                width: 100%;
+                max-width: 750px;
+            }
+        }  
+        #sendData{
+            font-family: "medium";
+            font-size: 16px;
+            color: $clear-text;
+            background-color: $main-color;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            width: 85%;
+            max-width: 750px;
+            margin: auto;
+            display: block;
+            margin-bottom: 50px;
+            cursor: pointer;
+        }      
+    }
+    app-form-error{
+        margin-bottom: 20px;
+    }
+}

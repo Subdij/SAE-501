@@ -1,0 +1,16 @@
+<p id="intro">Formation composée de 5 unités d'enseignements (U.E) : </p>
+
+<div id="ue-container" >
+    <div class="ue" *ngFor="let ue of data">
+        <div class="ue-title" [ngStyle]="{'background-color': ue.color}">{{ ue.title }}</div>
+        <div class="ue-line" [ngStyle]="{'background-color': ue.color}"></div>
+        <div class="ue-content" [ngStyle]="{'border-color': ue.color, 'border-width': '3px', 'border-style': 'solid'}">
+            <p>Ressources</p>
+            <ul>
+                <li *ngFor="let ressource of ue.ressources">
+                    <ul><strong>{{ressource.title}}</strong> {{ressource.desc}}</ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

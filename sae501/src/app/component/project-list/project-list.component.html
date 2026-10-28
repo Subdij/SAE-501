@@ -1,0 +1,48 @@
+<div id="container-project-list">
+    <div id="container">
+        <h3>Liste des projets étudiant</h3>
+        <button (click)="openAddPopup()">
+            <img src="../../../assets/images/icones/add_project.png" alt="">
+            Ajouter un projet
+        </button>
+    </div>
+    <div id="container-table">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let sorter of this.sorters">
+                        <div class="sorter" [ngClass]="{'active': sorter.active}" (click)="this.arraySorter.activeArrow(sorter, this.sorters, projects)" *ngIf="sorter.sorter">
+                            {{sorter.title}}
+                            <img 
+                                *ngIf="!sorter.active"
+                                src="assets/images/icones/arrow-down.png" alt="" 
+                                [ngClass]="{'active': sorter.active}"
+                            >
+                            <img 
+                                *ngIf="sorter.active"
+                                src="assets/images/icones/arrow-down-active.png" alt="" 
+                                [ngClass]="{'active': sorter.active, 'up': sorter.up}"
+                            >
+                        </div>
+                        <ng-container *ngIf="!sorter.sorter">{{sorter.title}}</ng-container>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects">
+                    <td class="title">{{project.title | decodeHtmlString | truncate: 20}}</td>
+                    <td><img class="miniature" src="https://sae501.alwaysdata.net/ressources/{{project.image}}"></td>
+                    <td>{{ project.description | decodeHtmlString | truncate: 22}}</td>
+                    <td>{{project.author | decodeHtmlString | truncate: 15}}</td>
+                    <td>MMI {{project.study_year}}</td>
+                    <td>{{project.date | date: 'dd/MM/yyyy'}}</td>
+                    <td><a href="{{project.link}}" target="_blank">{{ project.link | truncate: 12}}</a></td>
+                    <td class="action">
+                        <button class="delete" (click)="openDeletePopup(project.id)">Supprimer</button>
+                        <img class="modifiers" (click)="openEditPopup(project.id)" src="../../../assets/images/icones/small_edit.png" alt="edit">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

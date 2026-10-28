@@ -1,0 +1,59 @@
+@import '../../../styles.scss';
+
+#cover{
+    height: calc(100vh - 80px);
+    @include flex(column, center, center);
+    background-image: url("../../../assets/images/cover_responsive.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: $clear-text;
+    font-family: "text";
+    text-align: center;
+    padding: 0 20px;
+    padding-top: 65px;
+    h1, h2{
+        margin: 0;
+    }
+    h2{
+        font-size: 28px;
+    }
+    h1{
+        font-family: "bold";
+        font-size: 65px;
+        margin: 10px 0 0;
+    }
+    #grid-container{
+        display: none;
+        grid-template-columns: 3fr 1fr 3fr 1fr 3fr 1fr 3fr;
+        grid-template-rows: repeat(2);
+        .dot{
+            @include flex(row, center, center);
+            font-family: "bold";
+            font-size: 65px;
+        }
+        #hours-text { 
+            grid-area: 2 / 3 / 3 / 4; 
+        }
+        #minutes-text { 
+            grid-area: 2 / 5 / 3 / 6; 
+        }
+        #seconds-text { 
+            grid-area: 2 / 7 / 3 / 8; 
+        }
+        span{
+            margin-top: -20px;
+            font-family: "light";
+            font-size: 25px;
+        }
+    }
+    @media screen and (width > 699px) {
+        background-image: url("../../../assets/images/cover.png");
+        #grid-container{
+            display: grid;
+        }
+        #small-time{
+            display: none;
+        }
+    }
+}

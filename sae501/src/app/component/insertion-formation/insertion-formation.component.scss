@@ -1,0 +1,7 @@
+.cards-metiers{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-content: center;
+    
+    gap: 50px;
+}

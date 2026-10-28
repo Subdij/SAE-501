@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+#container-sondage-details{
+    @include list();
+    width: calc(95% - 20px);
+    @media screen and (width < 851px) {
+        margin: auto;
+        width: 90%;
+        max-height: 90%;
+    }
+}
